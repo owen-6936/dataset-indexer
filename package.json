@@ -1,0 +1,22 @@
+{
+  "name": "dataset-indexer",
+  "version": "1.0.0",
+  "description": "dataset-indexer is a Node.js application designed to process large datasets from various formats (starting with JSON and CSV), index them based on multiple criteria (like alphabetical order, genres, years), and provide a web-based \"workshop\" interface for managing and exploring the indexed data.",
+  "homepage": "https://github.com/owen-6936/dataset-indexer#readme",
+  "bugs": {
+    "url": "https://github.com/owen-6936/dataset-indexer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owen-6936/dataset-indexer.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Owen Erhabor",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

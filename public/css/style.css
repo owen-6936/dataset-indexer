@@ -1,0 +1,104 @@
+/* Basic styling for the workshop interface */
+
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+  color: #555;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #eee;
+}
+
+.section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #e9e9e9;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out content and buttons */
+  align-items: center; /* Vertically align items */
+  word-break: break-all; /* Prevent long names from overflowing */
+}
+
+li button {
+  margin-left: 10px; /* Space between buttons and text */
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #5cb85c;
+  color: white;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+li button:hover {
+  background-color: #4cae4c;
+}
+
+a {
+  font-weight: 500;
+  font-style: italic;
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  gap: 10px; /* Space between form elements */
+  align-items: center;
+}
+
+input[type="file"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+form button[type="submit"] {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #0275d8;
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #025aa5;
+}

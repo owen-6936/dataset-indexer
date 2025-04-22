@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script defer src="js/script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= pageTitle %></h1>
+      <p>
+        Hello there✌️, welcome to the dataset converter, current conversion
+        supported include just <b>CSV files to JSON files,</b> all your raw
+        datasets are shown below to add more you can upload with the upload form
+        provide below .
+      </p>
+      <div class="section">
+        <h2>Available Raw Datasets / CSV Files</h2>
+        <% if (files && files.length > 0) { %>
+        <ul>
+          <% files.forEach(function(file) { %>
+          <li>
+            <%= file.name %> <% if (file.type) { %> (<%= file.type %>) <% } %>
+            <% if (file.size) { %> - <%= file.size %> <% } %>
+            <button onclick="alert('View <%= file.name %>')">View</button>
+            <% if (file.name.includes("csv")) { %>
+            <button class="csv-to-json" param="<%= file.name %>">
+              Convert to JSON
+            </button>
+            <% } %>
+          </li>
+          <% }); %>
+        </ul>
+        <% } else { %>
+        <p>No datasets or index files found yet.</p>
+        <% } %>
+      </div>
+      <p>
+        done with conversion? <a href="./layout/indexer.ejs">start indexing</a>
+      </p>
+      <div class="section">
+        <h2>Upload New Dataset</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" name="datasetFile" id="datasetFile" />
+          <button type="submit">Upload File</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

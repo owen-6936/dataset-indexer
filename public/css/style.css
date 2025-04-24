@@ -26,13 +26,13 @@ h2 {
   margin-bottom: 20px;
 }
 
-.section {
+section {
   margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 1px dashed #eee;
 }
 
-.section:last-child {
+section:last-child {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
@@ -80,9 +80,12 @@ form {
   display: flex;
   gap: 10px; /* Space between form elements */
   align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
 }
 
 input[type="file"] {
+  display: block;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -90,6 +93,7 @@ input[type="file"] {
 }
 
 form button[type="submit"] {
+  display: block;
   padding: 8px 15px;
   border: none;
   border-radius: 4px;
@@ -101,4 +105,8 @@ form button[type="submit"] {
 
 form button[type="submit"]:hover {
   background-color: #025aa5;
+}
+
+.invisible {
+  visibility: hidden;
 }

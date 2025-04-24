@@ -12,7 +12,19 @@ window.onload = () => {
             ConvertCSVTOJSON(filename).then(val => {
                 e.target.innerText = "Converted to JSON file"
             });
+        })
+    })
 
+    document.querySelectorAll(".clean-dataset-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const filename = e.target.parentElement.getAttribute("param");
+            console.log("click:", filename);
+            const selectedDataset = document.querySelector("#selected-dataset");
+            selectedDataset.innerText = filename;
+            const btn = document.createElement("button");
+            btn.textContent = "analyze";
+            selectedDataset.appendChild(btn)
+            selectedDataset.classList.remove("invisible");
         })
     })
 }

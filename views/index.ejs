@@ -16,7 +16,7 @@
         datasets are shown below to add more you can upload with the upload form
         provide below .
       </p>
-      <div class="section">
+      <section>
         <h2>Available Raw Datasets / CSV Files</h2>
         <% if (files && files.length > 0) { %>
         <ul>
@@ -36,17 +36,17 @@
         <% } else { %>
         <p>No datasets or index files found yet.</p>
         <% } %>
-      </div>
+      </section>
       <p>
         done with conversion? <a href="./layout/indexer.ejs">start indexing</a>
       </p>
-      <div class="section">
+      <section>
         <h2>Upload New Dataset</h2>
         <form action="/upload" method="post" enctype="multipart/form-data">
           <input type="file" name="datasetFile" id="datasetFile" />
           <button type="submit">Upload File</button>
         </form>
-      </div>
+      </section>
     </div>
   </body>
 </html>

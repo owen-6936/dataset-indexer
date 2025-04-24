@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= pageTitle %></title>
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/script.js"></script>
   </head>
   <body>
     <div class="container">
@@ -14,15 +15,15 @@
         already did that now here you create the indexes for your datasets to
         begin select a dataset below..
       </p>
-      <div class="section">
-        <h2>Available Indexes</h2>
+      <section id="available-dataset">
+        <h2>Available Datasets</h2>
         <% if (files && files.length > 0) { %>
         <ul>
           <% files.forEach(function(file) { %>
-          <li>
+          <li param="<%= file.name %>" class="clean-dataset">
             <%= file.name %> <% if (file.type) { %> (<%= file.type %>) <% } %>
             <% if (file.size) { %> - <%= file.size %> <% } %>
-            <button>select</button>
+            <button class="clean-dataset-btn">select</button>
             <% if (!file.name.includes("json")) { %>
             <button class="warning" param="<%= file.name %>">
               this is not a valid json file!
@@ -34,11 +35,16 @@
         <% } else { %>
         <p>No datasets or index files found yet.</p>
         <% } %>
-      </div>
-      <div class="section">
+      </section>
+      <section>
         <h2>Uploading New Dataset</h2>
         <p>go <a href="/">here</a> to upload and convert raw datasets</p>
-      </div>
+      </section>
+      <section>
+        <h2>Dataset Analysis (select a dataset from the available datasets)</h2>
+        <h3>selected dataset</h3>
+        <li class="invisible" id="selected-dataset"></li>
+      </section>
     </div>
   </body>
 </html>

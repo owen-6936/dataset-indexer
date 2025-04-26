@@ -23,8 +23,34 @@ window.onload = () => {
             selectedDataset.innerText = filename;
             const btn = document.createElement("button");
             btn.textContent = "analyze";
-            selectedDataset.appendChild(btn)
+            selectedDataset.appendChild(btn);
             selectedDataset.classList.remove("invisible");
+            btn.addEventListener("click", (e) => {
+                btn.textContent = "analyzing..";
+                fetch("/index-field/" + filename,
+                ).then(async val => {
+                    if (val.status === 200) {
+                        btn.textContent = "analysis completed..";
+                        const object = await val.json();
+                        const objectKeys = await object.objectKeys;
+                        const indexFields = document.getElementById("index-fields");
+                        objectKeys.forEach(key => {
+                            const div = document.createElement("div");
+                            const input = document.createElement("input");
+                            input.type = "checkbox";
+                            input.id = key;
+                            const label = document.createElement("label");
+                            label.textContent = key;
+                            label.setAttribute("for", key);
+                            div.append(...[input, label]);
+                            indexFields.appendChild(div);
+                        })
+                    }
+                    else { btn.textContent = "analysis failed.." };
+                }).catch(() => {
+                    console.log("an error occured analyzing the file")
+                })
+            })
         })
     })
 }
